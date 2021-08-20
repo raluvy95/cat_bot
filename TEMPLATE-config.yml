@@ -25,7 +25,7 @@ statusCycleTimeInSeconds: 30
 
 # The statuses which will be cycled, you can however many you like
 # Prefix a status with a "P" to make it playing, "W" to make it watching, and "L" to make it listening
-# Use the placeholder {guildCount} to get the number of guilds the bot is on, and {cmdPrefix} to get the command prefix
+# Use the {cmdPrefix} placeholder to get the command prefix
 statuses:
   - "L{cmdPrefix}help"
   - "PMeow"

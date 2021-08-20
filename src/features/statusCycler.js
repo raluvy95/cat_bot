@@ -10,7 +10,6 @@ module.exports = {
 			};
 			let status = config.statuses[statusNumber];
 
-			status = status.replace("{guildCount}", client.guilds.cache.size);
 			status = status.replace("{cmdPrefix}", config.cmdPrefix);
 
 			let statusType;
