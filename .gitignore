@@ -1,0 +1,6 @@
+cache/
+data/dynamic/
+node_modules/
+config.yml
+package-lock.json
+todo

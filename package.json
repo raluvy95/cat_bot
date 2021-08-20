@@ -1,0 +1,23 @@
+{
+	"name": "cat_bot",
+	"version": "1.0.0",
+	"description": "A Discord bot for catnowblue's guild.",
+	"main": "src/index.js",
+	"private": true,
+	"scripts": {
+		"start": "node ."
+	},
+	"author": "James-Bennett-295",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/James-Bennett-295/cat_bot"
+	},
+	"dependencies": {
+		"ansi-colors": "^4.1.1",
+		"discord.js": "^12.5.3",
+		"js-yaml": "^4.1.0",
+		"node-fetch": "^2.6.1",
+		"rss-parser": "^3.12.0"
+	}
+}

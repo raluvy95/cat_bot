@@ -1,0 +1,74 @@
+# Tokens and keys for connecting to APIs
+tokens:
+  bot: "" # Discord bot token
+
+# Your Discord ID
+botOwnerId: ""
+
+# If enabled, colours will be used in the console
+# Set this to false if the terminal doesn't support colours
+colourfulConsole: true
+
+# 0 = no debug, 1 = some debug, 2 = more debug, 3 = even more debug, 4 = maximum debug.
+debugLevel: 0
+
+# Options for Discord.JS debug, unrelated to debugLevel
+dJsDebug:
+  enabled: false
+  hideHeartbeats: true
+
+# The character which must be put before a command to run it
+cmdPrefix: "-"
+
+# The amount of seconds between the status being changed
+statusCycleTimeInSeconds: 30
+
+# The statuses which will be cycled, you can however many you like
+# Prefix a status with a "P" to make it playing, "W" to make it watching, and "L" to make it listening
+# Use the placeholder {guildCount} to get the number of guilds the bot is on, and {cmdPrefix} to get the command prefix
+statuses:
+  - "L{cmdPrefix}help"
+  - "PMeow"
+
+# Set any to false to disable and true to enable
+enabledFeatures:
+  reeReplier: true # Reply "REEEEEEEEE" to messages that start with "ree"
+  antiDisboard: true # Replaces messages sent by the bot DISBOARD
+  ytNotifs: true # Will send a message when a Youtuber of choice posts a new video
+  nickFormat: true # Will change the user's nickname when they join
+  sudo: true # Pretend to run some Linux commands
+  joinMsg: true # Send a message to a channel when someone joins the server
+  blacklistStrings: true # Delete and reply to a string of characters which are blacklisted.
+
+blacklistStrings:
+  gistId: "" # The ID of the Github gist which will contain the blacklist file
+  filename: "" # The name of the file in the gist which contains an array of blacklisted strings
+  replyMsg: "{user} don't send links like that or you will be banned!" # The message which will be sent when a message is deleted because of this. The placeholder {user} can be used here to ping the user
+
+# These options will only be used if enabledFeatures.joinMsg is set to true
+joinMsg:
+  guildId: "" # The ID of the guild this feature will be enabled on
+  channelId: "" # The ID of the channel to have join messages sent to
+  message: "Hey {user}, welcome to the server!" # The join message. You can use the {user} placeholder to ping the user
+
+# These options will only be used if enabledFeatures.ytNotifs is set to true
+ytNotifs:
+  ytChannelId: "" # The ID of the Youtube channel to get notifications from
+  notifsChannelId: "" # The ID of the Discord channel to have notifications sent to
+  newVidCheckIntervalInMinutes: 2 # The amount of minutes between checking for new videos
+  notifMsg: "**{author}** just uploaded a new video, go check it out!\n{url}" # The message that will be sent when a new video is published on the channel of choice. Placeholders {author} and {url} can be used here
+
+# These options will only be used if enabledFeatures.nickFormat is set to true
+nickFormat:
+  guilds: [""] # IDs of guilds this feature will be enabled on
+  format: "> {user} <" # The format of the name, use the placeholder {user} for there username
+  trim: true # If set to true, nicknames will be trimmed if too large, if set to false, they will not be changed if too long
+
+# URLs the bot will connect too for certain tasks
+urls:
+  jokeapi: "https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun,Spooky,Christmas?blacklistFlags=nsfw,racist,sexist" # The jokeapi.dev url used in the joke command. Go to https://jokeapi.dev/#try-it to customise the URL
+
+# Emojis to be reacted due to certain events
+emojis:
+  ok: '✅' # Will sometimes be reacted to confirm the bot has seen the message and is executing the command if the is no message reply
+  slowDown: '⏳' # Running commands faster than the cooldown allows them too
