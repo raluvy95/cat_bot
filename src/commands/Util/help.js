@@ -28,7 +28,7 @@ module.exports = {
 				embed.addField(item, commandFiles.join(', '));
 			};
 
-			message.channel.send(embed);
+			message.channel.send({embeds: [embed]});
 		} else {
 			if (!client.commands.has(args[0].toLowerCase())) return message.channel.send(`Sorry <@!${message.author.id}>, but that command doesn't exist.`);
 
@@ -40,11 +40,11 @@ module.exports = {
 				.setDescription(command.description)
 				.addFields(
 					{ name: "Usage:", value: `\`${config.cmdPrefix}${command.name} ${command.usage}\`` },
-					{ name: "Minimum args:", value: command.minArgs },
+					{ name: "Minimum args:", value: command.minArgs?.toString() },
 					{ name: "Cooldown:", value: `${command.cooldown} seconds` }
 				)
 				.setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL());
-			message.channel.send(embed);
+			message.channel.send({embeds: [embed]});
 
 		};
 

@@ -4,8 +4,8 @@ const sudo = require('../features/sudo.js');
 const blacklistStrings = require('../features/blacklistStrings.js');
 
 module.exports = {
-	name: 'message',
-	execute(message, logger, config, client) {
+	name: 'messageCreate',
+	execute(logger, config, client, message) {
 
 		if (config.enabledFeatures.blacklistStrings) blacklistStrings.Message(message, logger, config, client);
 
@@ -20,8 +20,11 @@ module.exports = {
 		if (message.content.toLowerCase().startsWith("sudo ") && config.enabledFeatures.sudo) return sudo.execute(message, logger, config, client);
 
 		if (!message.content.startsWith(config.cmdPrefix)) return;
-
-		commands.execute(message, logger, config, client);
+		try {
+			commands.execute(message, logger, config, client);
+		} catch (e) {
+			debug.error(`Looks like there's something went wrong!\n${e}`)
+		}
 
 	},
 };

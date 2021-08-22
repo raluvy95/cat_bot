@@ -35,7 +35,7 @@ module.exports = {
 				if (post.is_video || post.domain == "youtube.com" || post.domain == "youtu.be") {
 					embed.setImage(post.thumbnail);
 				} else embed.setImage(post.url);
-				message.channel.send(embed);
+				message.channel.send({embeds: [embed]});
 			})
 			.catch(err => logger.error(err));
 	},

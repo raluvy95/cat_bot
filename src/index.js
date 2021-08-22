@@ -3,11 +3,13 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 const config = yaml.load(fs.readFileSync('./config.yml', 'utf8'));
 const Discord = require('discord.js');
-const intents = new Discord.Intents()
+const intents = Discord.Intents.FLAGS
 const client = new Discord.Client({
-    ws: {
-        intents: intents.ALL
-    }
+    intents: [
+		intents.GUILDS,
+		intents.GUILD_MESSAGES,
+		intents.GUILD_MEMBERS
+	]
 });
 const listenerFiles = fs.readdirSync('./src/listeners').filter(file => file.endsWith('.js'));
 const commandDirs = fs.readdirSync('./src/commands');
@@ -33,9 +35,9 @@ for (const dir of commandDirs) {
 for (const file of listenerFiles) {
 	const listener = require(`./listeners/${file}`);
 	if (listener.once) {
-		client.once(listener.name, (...args) => listener.execute(...args, logger, config, client));
+		client.once(listener.name, (...args) => listener.execute(logger, config, client, ...args));
 	} else {
-		client.on(listener.name, (...args) => listener.execute(...args, logger, config, client));
+		client.on(listener.name, (...args) => listener.execute(logger, config, client, ...args));
 	};
 };
 

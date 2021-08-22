@@ -8,9 +8,9 @@ module.exports = {
 				.setURL("https://disboard.org/")
 				.setDescription(`<@!${message.author.id}>,\nBump done :thumbsup:\nCheck it on DISBOARD: https://disboard.org/`)
 				.setImage("https://disboard.org/images/bot-command-image-bump.png");
-			message.channel.send(embed);
+			message.channel.send({embed: [embed]});
 		} else {
-			message.reply("No more Disboard.");
+			message.channel.send("No more Disboard.");
 		};
 
 		const disboardId = "302050872383242240";

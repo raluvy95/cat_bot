@@ -15,7 +15,7 @@
 	},
 	"dependencies": {
 		"ansi-colors": "^4.1.1",
-		"discord.js": "^12.5.3",
+		"discord.js": "^13.1.0",
 		"js-yaml": "^4.1.0",
 		"node-fetch": "^2.6.1",
 		"rss-parser": "^3.12.0"

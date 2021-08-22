@@ -23,7 +23,7 @@ module.exports = {
 					.setDescription("Source: xkcd.com")
 					.setImage(json.img)
 					.setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL());
-				message.channel.send(embed);
+				message.channel.send({embeds: [embed]});
 			})
 			.catch(err => logger.error(err));
 	},

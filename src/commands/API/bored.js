@@ -13,16 +13,17 @@ module.exports = {
 		fetch("http://www.boredapi.com/api/activity/")
 			.then(res => res.json())
 			.then(json => {
+				console.log(json)
 				let embed = new client.Embed()
 					.setColor("#00FF00")
 					.setTitle(`${json.activity}`)
 					.setDescription("Source: boredapi.com")
 					.addFields(
 						{ name: "Type:", value: json.type },
-						{ name: "Participants:", value: json.participants }
+						{ name: "Participants:", value: json.participants.toString() }
 					)
 					.setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL());
-				message.channel.send(embed);
+				message.channel.send({embeds: [embed]});
 			})
 			.catch(err => logger.error(err));
 	},

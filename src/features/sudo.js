@@ -11,7 +11,7 @@ module.exports = {
 					setTimeout(() => m.edit(`\`${filename}\` has been deleted!`), 3000);
 				});
 		} else if (command == "shutdown") {
-			message.channel.startsWith("Shutting down...");
+			message.channel.send("Shutting down...");
 		};
 	},
 };

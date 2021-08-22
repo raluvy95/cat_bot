@@ -6,7 +6,7 @@ module.exports = {
 	once: true,
 	execute(logger, config, client) {
 
-		logger.info(`Logged in as ${client.user.tag}`);
+		logger.info(`Logged in as ${client.user?.username}#${client.user?.discriminator}`);
 
 		statusCycler.execute(logger, config, client);
 

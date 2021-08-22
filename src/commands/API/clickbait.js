@@ -18,7 +18,7 @@ module.exports = {
 					.setTitle(`${json.title}`)
 					.setDescription("Source: clickbait-generator.herokuapp.com")
 					.setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL());
-				message.channel.send(embed);
+				message.channel.send({embeds: [embed]});
 			})
 			.catch(err => logger.error(err));
 	},

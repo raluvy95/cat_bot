@@ -22,7 +22,7 @@ module.exports = {
 					.setDescription(`Source: meme-api.herokuapp.com\n**Posted by ${json.author} on the ${json.subreddit} subreddit.**`)
 					.setImage(json.url)
 					.setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL());
-				message.channel.send(embed);
+				message.channel.send({embeds: [embed]});
 			})
 			.catch(err => logger.error(err));
 	},

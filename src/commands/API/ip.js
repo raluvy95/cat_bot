@@ -27,7 +27,7 @@ module.exports = {
 						{ name: "Organisation:", value: json.org }
 					)
 					.setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL());
-				message.channel.send(embed);
+				message.channel.send({embeds: [embed]});
 			})
 			.catch(err => logger.error(err));
 	},

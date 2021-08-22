@@ -24,7 +24,7 @@ module.exports = {
 				if (json.type == "single") {
 					embed.addField(json.joke, "\u200b");
 				} else embed.addField(json.setup, `||${json.delivery}||`);
-				message.channel.send(embed);
+				message.channel.send({embeds: [embed]});
 			})
 			.catch(err => logger.error(err));
 	},

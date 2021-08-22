@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'debug',
-	execute(debug, logger, config, client) {
+	execute(logger, config, client, debug) {
 
 		if (!config.dJsDebug.enabled) return;
 		if (config.dJsDebug.hideHeartbeats && debug.includes("Heartbeat")) return;

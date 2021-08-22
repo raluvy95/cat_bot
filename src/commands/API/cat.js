@@ -19,7 +19,7 @@ module.exports = {
 					.setDescription("Source: thecatapi.com")
 					.setImage(json[0].url)
 					.setFooter(`Requested by ${message.author.tag}`, message.author.avatarURL());
-				message.channel.send(embed);
+				message.channel.send({embeds: [embed]});
 			})
             .catch(err => logger.error(err));
 	},

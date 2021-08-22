@@ -27,7 +27,7 @@ module.exports = {
 
 		if (command.botOwnerOnly && message.author.id != config.botOwnerId) return message.reply("Only the bot owner is allowed to run this command.");
 
-		if (!message.member.hasPermission(command.requiredUserPerms)) return message.reply("Sorry, but you don't have permission to run this command.");
+		if (!message.member.permissions.has(command.requiredUserPerms)) return message.reply("Sorry, but you don't have permission to run this command.");
 
 		if (command.minArgs > args.length) return message.channel.send(`This command requires ${command.minArgs} arguments but you only supplied ${args.length}.`);
 
