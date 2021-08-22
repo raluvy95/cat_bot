@@ -13,7 +13,6 @@ module.exports = {
 		fetch("http://www.boredapi.com/api/activity/")
 			.then(res => res.json())
 			.then(json => {
-				console.log(json)
 				let embed = new client.Embed()
 					.setColor("#00FF00")
 					.setTitle(`${json.activity}`)
